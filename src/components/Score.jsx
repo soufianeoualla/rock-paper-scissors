@@ -1,10 +1,11 @@
 import Image from "next/image";
 import logo from "./images/logo.svg";
+import logo_advanced from './images/logo-bonus.svg'
 import '../Sass/score.scss'
-const Score = ({score}) => {
+const Score = ({score,type}) => {
   return (
     <header>
-      <Image src={logo} alt="logo" width={155} height={92} priority />
+      <Image src={type === 'advanced'? logo_advanced: logo} alt="logo" width={''} height={''} priority />
       <div className="score">
         <span>SCORE</span>
         <b>{score}</b>

@@ -67,12 +67,12 @@ export default function Home() {
       onClick={() => rulesModal && setRulesModal(false)}
       className={`${rulesModal && "background-modal"}`}
     >
-      <Score score={score} />
+      <Score score={score} type='advanced' />
       {!resultModal && <Game choices={choices} handleGame={handleGame} type='advanced' />}
       <button onClick={() => setRulesModal(true)} className="rules-button">
         Rules
       </button>
-      {rulesModal && <Rules setRulesModal={setRulesModal} />}
+      {rulesModal && <Rules setRulesModal={setRulesModal} type='advanced' />}
       {resultModal && (
         <Result
           result={result}

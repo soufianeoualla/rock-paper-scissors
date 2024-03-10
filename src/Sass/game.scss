@@ -4,7 +4,19 @@
   width: 198px;
   height: 198px;
   border-radius: 50%;
-  border-bottom: 10px solid hsl(0, 0, 0%,0.25);
+  border-bottom: 10px solid hsl(0, 0, 0%, 0.25);
+  z-index: 10;
+  &:hover {
+    outline: 20px solid hsla(0, 0, 100%, 0.1);
+    cursor: pointer;
+  }
+}
+@mixin advanced {
+  width: 145px;
+  height: 145px;
+  border-radius: 50%;
+  border-bottom: 10px solid hsl(0, 0, 0%, 0.25);
+  z-index: 10;
   &:hover {
     outline: 20px solid hsla(0, 0, 100%, 0.1);
     cursor: pointer;
@@ -26,6 +38,19 @@
     transform: translate(-50%, -50%);
   }
 }
+.advanced-game {
+  @include flex();
+  position: relative;
+  transform: translate(0%, 100%);
+  width: 472px;
+  margin: auto;
+  .triangle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
 .paper {
   @include style();
   @include flex();
@@ -33,10 +58,27 @@
   background-image: linear-gradient(180deg, $Paper-Gradient);
   transform: translate(25%, -52%);
 }
+.advanced-paper {
+  @include advanced();
+  @include flex();
+  position: absolute;
+  background-image: linear-gradient(180deg, $Paper-Gradient);
+  right: 0;
+  transform: translate(0%, -22%);
+}
 .rock {
   @include style();
   @include flex();
   transform: translate(0, 45%);
+  background-image: linear-gradient(180deg, $Rock-Gradient);
+}
+.advanced-rock {
+  @include advanced();
+  @include flex();
+  position: absolute;
+  bottom: 0;
+  right: 10%;
+  transform: translate(0, 100%);
   background-image: linear-gradient(180deg, $Rock-Gradient);
 }
 .scissors {
@@ -45,16 +87,48 @@
   transform: translate(-25%, -52%);
   background-image: linear-gradient(180deg, $Scissors-Gradient);
 }
-.choice {
-  width: 150px;
-  height: 150px;
+.advanced-scissors {
+  @include advanced();
+  @include flex();
+  background-image: linear-gradient(180deg, $Scissors-Gradient);
+  transform: translate(0%, -100%);
+}
+
+.advanced-lizard {
+  @include advanced();
+  @include flex();
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+  transform: translate(0, 100%);
+  background-image: linear-gradient(180deg, $Lizard-Gradient);
+}
+.advanced-spock {
+  @include advanced();
+  @include flex();
+  position: absolute;
+  background-image: linear-gradient(180deg, $Cyan);
+  left: 0;
+  transform: translate(0%, -22%);
+}
+@mixin choice {
   border-radius: 50%;
   background-color: white;
-  border-top: 10px solid hsl(0, 0, 0%,0.1);
-
-  @include flex();
+  border-top: 10px solid hsl(0, 0, 0%, 0.1);
 }
-.rules-button{
+.advanced-choice {
+  @include flex();
+  @include choice();
+  width: 111px;
+  height: 111px;
+}
+.choice {
+  @include choice();
+  @include flex();
+  width: 150px;
+  height: 150px;
+}
+.rules-button {
   position: absolute;
   bottom: 5%;
   right: 5%;
@@ -69,7 +143,7 @@
   border: 1px solid white;
   text-transform: uppercase;
   outline: none;
-  &:hover{
+  &:hover {
     background-color: white;
     color: $Dark;
     cursor: pointer;
