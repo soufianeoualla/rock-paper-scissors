@@ -1,0 +1,7 @@
+@use './colors' as *;
+main{
+    height: 100vh;
+    padding: 48px;
+    width: 100%;
+    background: linear-gradient(180deg, $Radial-Gradient);
+}

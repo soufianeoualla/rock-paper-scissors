@@ -1,0 +1,29 @@
+@use "./colors" as *;
+
+.rules {
+  width: 400px;
+  height: 415px;
+  padding: 32px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background-color: white;
+  display: flex;
+    justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 10px;
+  .top{
+    width: 100%;
+    display: flex ;
+    justify-content: space-between;
+    align-items: center;
+    h1{
+        color: $Dark;
+        font-size: 32px;
+        text-transform: uppercase;
+        line-height: 32px;
+    }
+  }
+}
