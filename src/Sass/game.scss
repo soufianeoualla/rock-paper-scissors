@@ -1,0 +1,53 @@
+@use "./colors" as *;
+
+@mixin style {
+  width: 198px;
+  height: 198px;
+  border-radius: 50%;
+  &:hover {
+    outline: 20px solid hsla(0, 0, 100%, 0.1);
+    cursor: pointer;
+  }
+}
+@mixin flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.game {
+  @include flex();
+  position: relative;
+  transform: translate(0%, 50%);
+  .triangle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+.paper {
+  @include style();
+  @include flex();
+  position: relative;
+  background-image: linear-gradient(180deg, $Paper-Gradient);
+  transform: translate(25%, -52%);
+}
+.rock {
+  @include style();
+  @include flex();
+  transform: translate(0, 45%);
+  background-image: linear-gradient(180deg, $Rock-Gradient);
+}
+.scissors {
+  @include style();
+  @include flex();
+  transform: translate(-25%, -52%);
+  background-image: linear-gradient(180deg, $Scissors-Gradient);
+}
+.choice {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-color: white;
+  @include flex();
+}

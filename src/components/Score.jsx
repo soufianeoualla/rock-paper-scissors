@@ -4,7 +4,7 @@ import '../Sass/score.scss'
 const Score = () => {
   return (
     <header>
-      <Image src={logo} alt="logo" width={155} height={92} />
+      <Image src={logo} alt="logo" width={155} height={92} priority />
       <div className="score">
         <span>SCORE</span>
         <b>12</b>
