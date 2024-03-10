@@ -2,8 +2,8 @@
 import Image from "next/image";
 import "../Sass/game.scss";
 import traingle from "./images/bg-triangle.svg";
-
-const Game = ({ choices, handleGame }) => {
+import pentagone from './images/'
+const Game = ({ choices, handleGame ,type }) => {
   return (
     <>
       <div className="game">
