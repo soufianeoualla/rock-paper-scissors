@@ -1,4 +1,3 @@
-import Score from '@/components/Score';
 import '../Sass/main.scss'
 export const metadata = {
   title: "Create Next App",
@@ -9,7 +8,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body >
-        <Score/>
+        
         {children}</body>
     </html>
   );

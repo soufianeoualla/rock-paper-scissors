@@ -14,7 +14,7 @@
   align-items: center;
   flex-direction: column;
   border-radius: 10px;
-  display: none;
+  z-index: 20;
   .top {
     width: 100%;
     display: flex;
@@ -26,5 +26,11 @@
       text-transform: uppercase;
       line-height: 32px;
     }
+    img{
+      cursor: pointer;
+    }
   }
 }
+
+
+

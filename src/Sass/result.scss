@@ -1,14 +1,13 @@
 @use "./colors" as *;
-@use "./game.scss";
+@use "./game.scss" as *;
+
 .results {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include flex();
+
   gap: 72px;
   .picked {
-    display: flex;
+    @include flex();
     flex-direction: column;
-    align-items: center;
     gap: 63px;
   }
   h2 {
@@ -19,11 +18,36 @@
   }
   .picked-results {
     transform: translate(0%, 0%);
+    position: static;
   }
-  .circle{
+  .circle {
     width: 200px;
     height: 200px;
     border-radius: 50%;
-    background-color: rgba($Dark , 0.2);
+    background-color: rgba($Dark, 0.2);
+  }
+  .play-again {
+    display: grid;
+    gap: 19px;
+    h1 {
+      font-size: 56px;
+      color: white;
+    }
+    button {
+        @include flex();
+      color: $Dark;
+      border: none;
+      outline: none;
+      background-color: white;
+      width: 100%;
+      height: 48px;
+      border-radius: 12px;
+      font-size: 16px;
+      letter-spacing: 2.5px;
+      cursor: pointer;
+      &:hover{
+        color: $Red;
+      }
+    }
   }
 }
