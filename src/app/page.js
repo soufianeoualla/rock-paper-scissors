@@ -20,6 +20,7 @@ export default function Home() {
   const [selectedChoice, setSelectedChoice] = useState();
   const [result, setResult] = useState();
   const [resultModal, setResultModal] = useState(false);
+  const [score, setScore] = useState(0);
   const randomNumber = useRef(null);
   useEffect(() => {
     randomNumber.current = Math.floor(Math.random() * choices.length);
@@ -39,8 +40,10 @@ export default function Home() {
       setResult("IT'S A DRAW");
     } else if (userWins[userChoice.name] === randomChoice.name) {
       setResult("YOU WIN");
+      setScore((prev) => prev + 1);
     } else {
       setResult("YOU LOSE");
+      setScore((prev) => prev - 1);
     }
   };
   const playAgain = () => {
@@ -54,7 +57,7 @@ export default function Home() {
       onClick={() => rulesModal && setRulesModal(false)}
       className={`${rulesModal && "background-modal"}`}
     >
-      <Score />
+      <Score score={score} />
       {!resultModal && <Game choices={choices} handleGame={handleGame} />}
       <button onClick={() => setRulesModal(true)} className="rules-button">
         Rules

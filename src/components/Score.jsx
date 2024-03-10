@@ -1,13 +1,13 @@
 import Image from "next/image";
 import logo from "./images/logo.svg";
 import '../Sass/score.scss'
-const Score = () => {
+const Score = ({score}) => {
   return (
     <header>
       <Image src={logo} alt="logo" width={155} height={92} priority />
       <div className="score">
         <span>SCORE</span>
-        <b>12</b>
+        <b>{score}</b>
       </div>
     </header>
   );
