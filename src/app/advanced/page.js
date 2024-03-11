@@ -10,7 +10,13 @@ import scissors from "/public/images/icon-scissors.svg";
 import spock from "/public/images/icon-spock.svg";
 import lizard from "/public/images/icon-lizard.svg";
 
-
+const userWins = {
+  paper: ["rock", "spock"],
+  rock: ["scissors", "lizard"],
+  scissors: ["paper", "lizard"],
+  lizard: ["spock", "paper"],
+  spock: ["rock", "scissors"],
+};
 export default function Home() {
   const [rulesModal, setRulesModal] = useState(false);
   const choices = [
@@ -19,7 +25,6 @@ export default function Home() {
     { name: "scissors", img: scissors },
     { name: "spock", img: spock },
     { name: "lizard", img: lizard },
-
   ];
 
   const [selectedChoice, setSelectedChoice] = useState();
@@ -31,16 +36,11 @@ export default function Home() {
   const handleGame = (index) => {
     setSelectedChoice(index);
     setResultModal(true);
-    const userWins = {
-      paper: "rock",
-      rock: "scissors",
-      scissors: "paper",
-    };
     const randomChoice = choices[randomNumber.current];
     const userChoice = choices[index];
     if (userChoice.name === randomChoice.name) {
       setResult("IT'S A DRAW");
-    } else if (userWins[userChoice.name] === randomChoice.name) {
+    } else if (userWins[userChoice.name].includes(randomChoice.name)) {
       setResult("YOU WIN");
       setTimeout(() => {
         setScore((prev) => prev + 1);
@@ -67,19 +67,21 @@ export default function Home() {
       onClick={() => rulesModal && setRulesModal(false)}
       className={`${rulesModal && "background-modal"}`}
     >
-      <Score score={score} type='advanced' />
-      {!resultModal && <Game choices={choices} handleGame={handleGame} type='advanced' />}
+      <Score score={score} type="advanced" />
+      {!resultModal && (
+        <Game choices={choices} handleGame={handleGame} type="advanced" />
+      )}
       <button onClick={() => setRulesModal(true)} className="rules-button">
         Rules
       </button>
-      {rulesModal && <Rules setRulesModal={setRulesModal} type='advanced' />}
+      {rulesModal && <Rules setRulesModal={setRulesModal} type="advanced" />}
       {resultModal && (
         <Result
           result={result}
           randomChoice={choices[randomNumber.current]}
           userChoice={choices[selectedChoice]}
           handleplayAgain={playAgain}
-          type='advanced'
+          type="advanced"
         />
       )}
     </main>
