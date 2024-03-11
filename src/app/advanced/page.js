@@ -79,6 +79,7 @@ export default function Home() {
           randomChoice={choices[randomNumber.current]}
           userChoice={choices[selectedChoice]}
           handleplayAgain={playAgain}
+          type='advanced'
         />
       )}
     </main>

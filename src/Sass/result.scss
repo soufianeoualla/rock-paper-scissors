@@ -34,7 +34,7 @@
       color: white;
     }
     button {
-        @include flex();
+      @include flex();
       color: $Dark;
       border: none;
       outline: none;
@@ -45,9 +45,19 @@
       font-size: 16px;
       letter-spacing: 2.5px;
       cursor: pointer;
-      &:hover{
+      &:hover {
         color: $Red;
       }
     }
   }
+}
+.spock {
+  @include style();
+  background-image: linear-gradient(180deg, $Cyan);
+  @include flex();
+}
+.lizard {
+  @include style();
+  background-image: linear-gradient(180deg, $Lizard-Gradient);
+  @include flex();
 }
