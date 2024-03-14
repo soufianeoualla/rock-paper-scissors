@@ -20,7 +20,7 @@ export default function Home() {
     { name: "rock", img: rock },
     { name: "scissors", img: scissors },
   ];
-  const router = useRouter
+  const router = useRouter();
   const [selectedChoice, setSelectedChoice] = useState();
   const [result, setResult] = useState("");
   const [resultModal, setResultModal] = useState(false);
