@@ -1,0 +1,76 @@
+@use './colors' as *;
+@mixin input {
+    display: block;
+    height: 50px;
+    width: 100%;
+    border-radius: 3px;
+    padding: 0 10px;
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 300;
+    background-color: rgba($Dark, 0.05);
+    border: 1px solid rgba($Header, 0.3);
+    outline: none;
+    color: white;
+  }
+.login-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    form {
+      width: 400px;
+      padding: 24px;
+      background-image: linear-gradient(180deg, $Radial-Gradient);
+      border-radius: 10px;
+      display: grid;
+      gap: 16px;
+      box-shadow: 0 0 40px rgba(8, 7, 16, 0.4);
+      .logo {
+        margin: auto;
+        h1 {
+          color: white;
+        }
+      }
+      label {
+        display: grid;
+        gap: 8px;
+        color: white;
+        font-size: 14px;
+        input {
+          @include input();
+        }
+    
+      }
+      button {
+        @include input();
+        background-color: white;
+        color: $Dark;
+        cursor: pointer;
+        font-weight: 600;
+        &:hover {
+          background-color: transparent;
+          color: white;
+          cursor: pointer;
+        }
+      }
+    }
+    p{
+      color: white;
+      margin: auto;
+      a{
+        color: white;
+        font-weight: 500;
+      }
+    }
+  }
+  .error {
+   
+    color: $Red !important;
+    font-weight: 500;
+    font-size: 14px;
+  }
+  
+  .message {
+    font-weight: 500;
+  }

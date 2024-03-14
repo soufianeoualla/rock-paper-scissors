@@ -1,5 +1,5 @@
 @use './colors' as *;
-
+@use './mediaSize.scss' as *;
 header{
     display: flex ;
     justify-content: space-between;
@@ -32,4 +32,10 @@ header{
         }
     }
     
+}
+
+@media screen and (max-width:$small) {
+    header{
+        width: 100%;
+    }
 }

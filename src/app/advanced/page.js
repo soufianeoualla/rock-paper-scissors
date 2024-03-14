@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import Game from "@/components/Game";
 import Rules from "@/components/Rules";
 import Score from "@/components/Score";
@@ -9,6 +9,10 @@ import rock from "/public/images/icon-rock.svg";
 import scissors from "/public/images/icon-scissors.svg";
 import spock from "/public/images/icon-spock.svg";
 import lizard from "/public/images/icon-lizard.svg";
+import Navbar from "@/components/Navbar";
+import Link from "next/link";
+import { UserContext } from "@/lib/authContext";
+import { useRouter } from "next/navigation";
 
 const userWins = {
   paper: ["rock", "spock"],
@@ -18,6 +22,10 @@ const userWins = {
   spock: ["rock", "scissors"],
 };
 export default function Home() {
+  const {user} = useContext(UserContext)
+  const router = useRouter()
+
+
   const [rulesModal, setRulesModal] = useState(false);
   const choices = [
     { name: "paper", img: paper },
@@ -32,6 +40,11 @@ export default function Home() {
   const [resultModal, setResultModal] = useState(false);
   const [score, setScore] = useState(0);
   const randomNumber = useRef(Math.floor(Math.random() * choices.length));
+  useEffect(()=>{
+    if(!user){
+      router.push('/login')
+    }
+  })
 
   const handleGame = (index) => {
     setSelectedChoice(index);
@@ -64,9 +77,10 @@ export default function Home() {
 
   return (
     <main
-      onClick={() => rulesModal && setRulesModal(false)}
-      className={`${rulesModal && "background-modal"}`}
+    onClick={() => rulesModal && setRulesModal(false)}
+    className={`${rulesModal && "background-modal"} game-page`}
     >
+      <Navbar/>
       <Score score={score} type="advanced" />
       {!resultModal && (
         <Game choices={choices} handleGame={handleGame} type="advanced" />
@@ -84,6 +98,8 @@ export default function Home() {
           type="advanced"
         />
       )}
+            <Link href={'/'} className="home">Home</Link >
+
     </main>
   );
 }
