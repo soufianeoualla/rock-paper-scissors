@@ -33,8 +33,8 @@ const Page = () => {
         password: data.password,
       });
   
-      const user = response.data;
-      setToken(user)
+      const userData = response.data;
+      setToken(userData)
       router.push('/')
       setUser(true)
     } catch (error) {

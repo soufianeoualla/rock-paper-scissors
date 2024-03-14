@@ -101,8 +101,8 @@ const Page = () => {
           }
         );
 
-        const data = response.data;
-        setToken(data)
+        const userData = response.data;
+        setToken(userData)
         setUser(true)
         router.push('/')
       } catch (error) {
