@@ -42,7 +42,7 @@ export default function Home() {
   const randomNumber = useRef(Math.floor(Math.random() * choices.length));
   useEffect(()=>{
     if(!user){
-      router.push('/login')
+      router.push('/')
     }
   })
 
